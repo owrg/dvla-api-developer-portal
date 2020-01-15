@@ -1,0 +1,106 @@
+{% extends "v0/layout_v0_outlook.html" %}
+
+{% block pageTitle %}
+Vehicle Enquiry Service
+{% endblock %}
+
+{% block content %}
+
+
+<div class="outlook-messageblock">
+
+      <div class="outlook-sender">
+        External Developer
+      </div>
+      <div class="outlook-date">
+        {{data['application-date']|dateInEmailFormat}}
+      </div>
+      <div class="outlook-to">
+        DSST
+      </div>
+      <div class="outlook-message">
+
+        <p>Please create this user in the <a href="/v0/api/dsst-imp-create-open-data-user-form" target="_blank">Internal Management Portal</a> and respond to them within 5 working days</p>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['company-name']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['email-address']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['full-name']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['address-line-1']}}<br />
+              {{data['address-line-2']}}<br />
+              {{data['address-town']}}<br />
+              {{data['address-postcode']}}<br />
+              {{data['address-country']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['contact-number']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Intended use of the data
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['intended-use']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Data environment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['VESenvironment']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Support Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['notifications-name']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Support Email
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['notifications-email-address']}}
+            </dd>
+          </div>
+        </dl>
+
+      </div>
+</div>
+{% endblock %}

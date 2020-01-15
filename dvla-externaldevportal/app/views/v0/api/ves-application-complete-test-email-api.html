@@ -1,0 +1,46 @@
+{% extends "v0/layout_v0_gmail.html" %}
+
+{% block pageTitle %}
+Consumer confirmation email
+{% endblock %}
+
+{% block content %}
+
+
+<div class="gmail-messageblock">
+
+    <div class="gmail-subject">
+      DVLA Open Data API User Sign-up
+    </div>
+      <div class="gmail-sender">
+        DVLA Secure Access <span class="gmail-sender-email">&lt;DVLASecureAccessInternal@dvla.gov.uk&gt;</span>
+      <span class="gmail-date">
+        {{data['application-date']|dateInTimeFormat}} (0 minutes ago)
+      </span>
+    </div>
+      <div class="gmail-to">
+        to me
+      </div>
+      <div class="gmail-message">
+        <p>
+          You’re now set up as an Open Data API Dev Service user.
+        </p>
+        <p>
+          A new dev API key has been created for the DVLA API user: {{data['company-name']}}
+        </p>
+        <p><strong>
+          Your dev API key is "yITdpi74Di79jsud5Q1Ul2TfbyiEfCrr6kqOtjby"
+        </strong></p>
+        <p>
+          This is an automatically generated email – please do not reply to it. If you’ve got any queries or are experiencing any issues please email: DVLASecureAccessInternal@dvla.gov.uk
+        </p>
+        <code>
+          ************************************************************************************
+          <br/>Correspondents should note that all communications to DVLA may be automatically logged, monitored and/or recorded for lawful purposes.
+          <br/>Please visit www.gov.uk/browse/driving for government information on all aspects of motoring, ranging from log books and driving licences to driving tests and vehicle tax.
+          <br/>************************************************************************************
+        </code>
+
+      </div>
+</div>
+{% endblock %}
