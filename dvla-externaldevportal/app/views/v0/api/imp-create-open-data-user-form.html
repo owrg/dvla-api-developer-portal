@@ -1,0 +1,39 @@
+{% extends "v0/layout_v0_imp.html" %}
+
+{% block pageTitle %}
+Create Open Date API user
+{% endblock %}
+
+{% block content %}
+
+
+<div class="imp-messageblock">
+
+  <div class="imp-input">
+    {{data['company-name']}}
+  </div>
+  <div class="imp-input">
+    {{data['full-name']}}
+  </div>
+  <div class="imp-input">
+    {{data['address-line-1']}} {{data['address-line-2']}}<br />
+    {{data['address-town']}} {{data['address-postcode']}} {{data['address-country']}}
+  </div>
+  <div class="imp-input">
+    {{data['email-address']}}
+  </div>
+  <div class="imp-input">
+    {{data['contact-number']}}
+  </div>
+  <div class="imp-input">
+
+  </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+  <a href="/v0/api/register-for-ves-email-consumer-confirmation">Simulate user creation</a>
+</div>
+{% endblock %}

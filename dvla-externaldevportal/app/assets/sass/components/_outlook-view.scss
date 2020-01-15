@@ -1,0 +1,53 @@
+.outlook-header {
+  display: inline-block;
+  height: 150px;
+  width: 1214px; //2396px;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+  background-image: url("/public/images/outlook_full.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: contain;
+}
+
+.outlook-sender {
+  font-family: 'Roboto';
+  font-size: 22px;
+  color: #0179d7;
+  margin-bottom: 5px;
+}
+
+.outlook-date {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #605d5a;
+  margin-bottom: 8px;
+}
+
+.outlook-to {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.outlook-messageblock {
+  display: block;
+  position: absolute;
+  top: 160px;
+  left: 690px;
+  width: 470px;
+  border:0px solid #FF0000;
+  padding: 0px;
+}
+
+.outlook-message p {
+  font-size: 0.8em !important;
+}
+
+.govuk-summary-list {
+  font-size: 0.8em !important;
+}

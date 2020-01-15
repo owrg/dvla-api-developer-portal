@@ -1,0 +1,160 @@
+{% if data['signedin'] == "true" %}
+{% extends "v1/layout_v1_signedin.html" %}
+{% else %}
+{% extends "v1/layout_v1.html" %}
+{% endif %}
+
+{% block pageTitle %}
+  Vehicle Enquiry Service
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Vehicle Enquiry Service
+    </h1>
+
+    <p>
+      The DVLA Vehicle Enquiry Service API is a RESTful service that provides vehicle details of a specified vehicle.
+    </p>
+    <p>
+      It uses the vehicle registration number as input to search and provide details of the vehicle.
+    </p>
+    <p>
+      The response data is provided in JSON format.
+    </p>
+
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#specification">
+            Specification
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#status-dashboard">
+            Status Dashboard
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#subscription">
+            Subscription
+          </a>
+        </li>
+      </ul>
+
+      <section class="govuk-tabs__panel" id="specification">
+        <h2 class="govuk-heading-l">Open API v3.0 specification</h2>
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/v1.1.0-vehicle-enquiry-service.html#vehicle-enquiry-api">HTML</a></td>
+              <td class="govuk-table__cell"><a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/swagger/vehicle-enquiry-service/v1.1.0-vehicle-enquiry-service.json" target="_blank">JSON</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="status-dashboard">
+        <h2 class="govuk-heading-l">API service dashboard</h2>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" colspan="2">Current status</th>
+              <td class="govuk-table__cell govuk-table__cell"><img src="/public/images/icon-tick.png" style="width:15px;" alt="No issues"/> No issues</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          <img src="/public/images/API_Status_4GS.png" alt="API Healthcheck" style="width:100%">
+        </p>
+      </section>
+
+      <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="subscription">
+        <h2 class="govuk-heading-l">Subscription</h2>
+        {% if data['signedin'] == "true" %}
+          {% if (data['ves-plan'] == null or data['ves-plan'] == "") %}
+          <p>You are not currently subscribed to this API.</p>
+          <p>To subscribe to this API, select the appropriate plan, and click subscribe.</p>
+            <form action="/v1/api/subscribed" method="post">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="sort">
+                  Plan
+                </label>
+                <select class="govuk-select" id="ves-plan" name="ves-plan">
+                  <option value="Standard" selected>Standard (Rate: 1, Burst: 2)</option>
+                  <option value="Premium">Premium (Rate: 10, Burst: 20)</option>
+                </select>
+              </div>
+              <input id="api-key" name="api-key" value="14c7fc25-36dc-42ab-a0a1-2b2202b2d25b-cef3da8c-54ef-4e80-a382-ea7bfc595b47" type="hidden">
+              <button class="govuk-button" data-module="govuk-button">
+                Subscribe
+              </button>
+            </form>
+            {% else %}
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  API Key
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  14c7fc25-...-ea7bfc595b47
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="/v1/api/ves-unsubscribe">
+                    Revoke<span class="govuk-visually-hidden"> name</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Plan
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['ves-plan'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Created
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  22 Nov 2019
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Calls
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  2,394
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+              </div>
+            </dl>
+            <img src="/public/images/API_Traffic.png" alt="API Traffic" style="width:500px; display: block; margin-left: auto; margin-right: auto;">
+          {% endif %}
+        {% else %}
+          <p>
+            To subscribe to use this service, please <a href="/v1/signin">sign in</a> or <a href="/v1/register">register</a>
+          </p>
+        {% endif %}
+      </section>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

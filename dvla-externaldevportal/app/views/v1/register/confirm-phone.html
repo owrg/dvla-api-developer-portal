@@ -1,0 +1,43 @@
+{% if data['signedin'] == "true" %}
+{% extends "v1/layout_v1_signedin.html" %}
+{% else %}
+{% extends "v1/layout_v1.html" %}
+{% endif %}
+
+{% block pageTitle %}
+Check your phone
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+        <h1 class="govuk-fieldset__heading">
+          Check your phone
+        </h1>
+      </legend>
+      <p>We've sent you a text message with a security code.</p>
+
+      <form action="/v1/api" method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="security-code">
+            Text message code
+          </label>
+          <input class="govuk-input govuk-input--width-4" id="security-code" name="security-code" type="text">
+          <input id="signedin" name="signedin" type="hidden" value="true">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button" href="">
+          Continue
+        </button>
+      </form>
+      <p><a href="/v1/register/reenter-phone">Not received a text message</a></p>
+
+    </fieldset>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DVLA data sharing self service prototype
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Question 7 of 10</span>
+      <h1 class="govuk-heading-xl">
+        API usage plan
+      </h1>
+      <form action="/v1/obf_08" method="post" novalidate>
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-label--m" for="max_users">
+                    How many concurrent users will use your API at peak load?
+                  </label>
+                  <span id="max_users-hint" class="govuk-hint">
+                    For example, 100
+                  </span>
+                  <input class="govuk-input govuk-input--width-3" id="max_users" name="max_users" type="text" aria-describedby="max_users-hint">
+                </div>
+
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-label--m" for="max_reqs">
+                    How many requests does your API need to support, per second?
+                  </label>
+                  <span id="max_reqs-hint" class="govuk-hint">
+                    For example, 10
+                  </span>
+                  <input class="govuk-input govuk-input--width-3" id="max_reqs" name="max_reqs" type="text" aria-describedby="max_reqs-hint">
+                </div>
+
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+
+              </form>
+
+</div>
+
+{% endblock %}

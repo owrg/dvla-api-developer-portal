@@ -1,0 +1,169 @@
+{% if data['signedin'] == "true" %}
+{% extends "v0/layout_v0_signedin.html" %}
+{% else %}
+{% extends "v0/layout_v0.html" %}
+{% endif %}
+
+{% block pageTitle %}
+Personalised Registrations Sales
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Personalised Registrations Sales
+    </h1>
+
+    <p>
+      The DVLA Personalised Registrations Sales Service API is a RESTful service that provides details of personalised vehicle registration numbers.
+    </p>
+    <p>
+      It uses the vehicle registration number as input to search and provide details of the vehicle.
+    </p>
+    <p>
+      The response data is provided in JSON format.
+    </p>
+
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#specification">
+            Specification
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#status-dashboard">
+            Status Dashboard
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#subscription">
+            Subscription
+          </a>
+        </li>
+      </ul>
+
+      <section class="govuk-tabs__panel" id="specification">
+        <h2 class="govuk-heading-l">Open API v3.0 specification</h2>
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/v0.1.0-vehicle-enquiry-service.html#vehicle-enquiry-api">HTML</a></td>
+              <td class="govuk-table__cell"><a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/swagger/vehicle-enquiry-service/v0.1.0-vehicle-enquiry-service.json" target="_blank">JSON</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="status-dashboard">
+        <h2 class="govuk-heading-l">API service dashboard</h2>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" colspan="2">Current status</th>
+              <td class="govuk-table__cell govuk-table__cell"><span id="passport-issued-error" class="govuk-error-message"><img src="/public/images/icon-noentry.png" style="width:15px;" alt="Outage" /> Outage</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="govuk-error-message">
+          There is currently an outage on this API as it hasn't been deployed yet. It is still work in progress.
+        </p>
+        <p class="govuk-error-message">
+          Unfortunately we do not have an estimated day/time of when the service will be live.
+        </p>
+        <p>
+          We will post updates as we understand more information. Please come back later.
+        </p>
+
+        <p>
+          <img src="/public/images/API_Status_4GS.png" alt="API Healthcheck" style="width:100%">
+        </p>
+      </section>
+
+      <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="subscription">
+        <h2 class="govuk-heading-l">Subscription</h2>
+        {% if data['signedin'] == "true" %}
+          {% if (data['prs-plan'] == null or data['prs-plan'] == "") %}
+            <form action="/v0/api/subscribed" method="post">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="sort">
+                  Plan
+                </label>
+                <select class="govuk-select" id="prs-plan" name="prs-plan">
+                  <option value="Standard" selected>Standard (Rate: 1, Burst: 2)</option>
+                  <option value="Premium">Premium (Rate: 10, Burst: 20)</option>
+                </select>
+              </div>
+              <input id="api-key" name="api-key" value="14c7fc25-36dc-42ab-a0a1-2b2202b2d25b-cef3da8c-54ef-4e80-a382-ea7bfc595b47" type="hidden">
+              <button class="govuk-button" data-module="govuk-button">
+                Subscribe
+              </button>
+            </form>
+            {% else %}
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  API Key
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  14c7fc25-...-ea7bfc595b47
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="/v0/api/prs-unsubscribe">
+                    Revoke<span class="govuk-visually-hidden"> name</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Plan
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['prs-plan'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Created
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  22 Nov 2019
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Calls
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  538
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+              </div>
+            </dl>
+            <img src="/public/images/API_Traffic.png" alt="API Traffic" style="width:500px; display: block; margin-left: auto; margin-right: auto;">
+          {% endif %}
+        {% else %}
+          <p>
+            To subscribe to use this service, please <a href="/v0/signin">sign in</a> or <a href="/v0/register">register</a>
+          </p>
+        {% endif %}
+      </section>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

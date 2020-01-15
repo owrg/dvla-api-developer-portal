@@ -1,0 +1,27 @@
+{% if data['signedin'] == "true" %}
+{% extends "v0/layout_v0_signedin.html" %}
+{% else %}
+{% extends "v0/layout_v0.html" %}
+{% endif %}
+
+{% block pageTitle %}
+Check your email
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+        <h1 class="govuk-fieldset__heading">
+          Check your email
+        </h1>
+      </legend>
+      <p>An email has been sent to {{ data['email-address'] }}</p>
+      <p>Click the link in the email to <a href="confirm-phone">continue</a> your registation</p>
+    </fieldset>
+
+  </div>
+</div>
+
+{% endblock %}

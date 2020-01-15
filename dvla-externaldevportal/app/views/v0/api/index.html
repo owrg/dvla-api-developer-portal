@@ -1,0 +1,63 @@
+{% if data['signedin'] == "true" %}
+{% extends "v0/layout_v0_signedin.html" %}
+{% else %}
+{% extends "v0/layout_v0.html" %}
+{% endif %}
+
+{% block pageTitle %}
+  Available APIs
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Available APIs
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p>Last updated: 6 Dec 2019</p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+    <p>
+    <img src="/public/images/icon-tick.png" style="width:15px;" alt="No issues"/> No issues,
+    <img src="/public/images/icon-information.png" style="width:15px;" alt="Maintenance"/> Maintenance,
+    <img src="/public/images/icon-important.png" style="width:15px;" alt="Incident"/> Incident,
+    <img src="/public/images/icon-noentry.png" style="width:15px;" alt="Outage"/> Outage
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">API</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Current version</th>
+          <th scope="col" class="govuk-table__header govuk-table__header">Current status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="/v0/api/ves">Vehicle Enquiry Service</a></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">1.1.0</td>
+          <td class="govuk-table__cell govuk-table__cell"><img src="/public/images/icon-tick.png" style="width:15px;" alt="No issues"/> No issues</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="/v0/api/prs">Personal Registraion Sales</a></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">1.0.0</td>
+          <td class="govuk-table__cell govuk-table__cell"><span id="passport-issued-error" class="govuk-error-message"><img src="/public/images/icon-noentry.png" style="width:15px;" alt="Outage"/> Outage</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+{% endblock %}

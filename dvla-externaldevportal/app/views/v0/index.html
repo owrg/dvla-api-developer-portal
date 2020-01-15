@@ -1,0 +1,115 @@
+{% if data['signedin'] == "true" %}
+{% extends "v0/layout_v0_signedin.html" %}
+{% else %}
+{% extends "v0/layout_v0.html" %}
+{% endif %}
+
+{% block pageTitle %}
+  DVAL API Developer Portal
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="product-page-intro">
+      <div class="product-page-intro-wrapper override-elements-content" id="content">
+        <h1>
+          Explore, test and subscribe to DVLA APIs
+        </h1>
+        <p>
+          Integrate your application with open data from the DVLA
+        </p>
+        <p>
+          <a href="v0/register" class="button">Create an account</a>
+          or <a href="v0/signin">sign in</a> if you’ve used it before
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-l">Discover APIs</h2>
+    <p>
+      View the open data APIs that the DVLA has made available.
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+    <img src="/public/images/API_Status_4GS.png" alt="API Healthcheck" style="width:300px;">
+  </div>
+</div>
+
+<hr/>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-l">Test APIs</h2>
+    <p>
+      Test the open data APIs that the DVLA has made available.
+    </p>
+    <p>
+      Specify requests and see the response.
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+    <img src="/public/images/Test_API.png" alt="API Healthcheck" style="width:300px;">
+  </div>
+</div>
+
+<hr/>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-l">Subscribe to APIs</h2>
+    <p>
+      When you have found an open data API that you want to intergrate with, then you can subscribe.
+    </p>
+    <p>
+      Subscribing gives you an API key to use when you call the service.
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+    <img src="/public/images/API_Subscribe.png" alt="API Healthcheck" style="width:300px;">
+  </div>
+</div>
+
+<hr/>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">What's new</h2>
+    <p class="govuk-body">
+      We have been working hard to add lots of great features to the DVLA API Developer portal over the last few months.
+    </p>
+    <h2 class="govuk-heading-m">December 2019</h2>
+    <p class="govuk-body">
+      Here's what we've added:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Registration</li>
+      <li>Sign in functionality</li>
+      <li>Manually subscribe</li>
+    </ul>
+  </div>
+</div>
+
+
+<hr/>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Road Map</h2>
+    <p class="govuk-body">
+      We have lots of great features that we plan to add to the DVLA API Developer portal over the next few months.
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>API Key management</li>
+      <li>API Usage reports</li>
+      <li>Secure Access User management</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

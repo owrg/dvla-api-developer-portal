@@ -1,0 +1,71 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DVLA data sharing self service prototype
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Question 5 of 10</span>
+      <h1 class="govuk-heading-xl">
+        Environments
+      </h1>
+      <form action="/v1/obf_06" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="environments-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <label class="govuk-label govuk-label--m" for="environments">
+                    Which non-prod environments do you want your API to run on?
+              </label>
+            </legend>
+            <span id="environments-hint" class="govuk-hint">
+              Select all that apply.
+            </span>
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="environments" name="environments" type="checkbox" value="Squad">
+                <label class="govuk-label govuk-checkboxes__label" for="environments">
+                  Squad
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="environments-2" name="environments" type="checkbox" value="Dev">
+                <label class="govuk-label govuk-checkboxes__label" for="environments-2">
+                  Dev
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="environments-3" name="environments" type="checkbox" value="Int">
+                <label class="govuk-label govuk-checkboxes__label" for="environments-3">
+                  Int
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="environments-3" name="environments" type="checkbox" value="UAT">
+                <label class="govuk-label govuk-checkboxes__label" for="environments-3">
+                  UAT
+                </label>
+              </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="environments-4" name="environments" type="checkbox" value="Pre-Prod">
+              <label class="govuk-label govuk-checkboxes__label" for="environments-4">
+                Pre-Prod
+              </label>
+            </div>
+          </div>
+          </fieldset>
+        </div>
+
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+</div>
+
+{% endblock %}

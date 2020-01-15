@@ -1,0 +1,134 @@
+{% if data['signedin'] == "true" %}
+{% extends "v1/layout_v1_signedin.html" %}
+{% else %}
+{% extends "v1/layout_v1.html" %}
+{% endif %}
+
+{% block pageTitle %}
+  Your profile
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Your profile
+    </h1>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+        <div class="govuk-tabs" data-module="govuk-tabs">
+          <h2 class="govuk-tabs__title">
+            Contents
+          </h2>
+          <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#account">
+                Account
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#subscriptions">
+                Subscriptions
+              </a>
+            </li>
+          </ul>
+
+          <section class="govuk-tabs__panel" id="account">
+            <h2 class="govuk-heading-l">Account details</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Name</td>
+                  <td class="govuk-table__cell">{{data['full-name']}}</td>
+                  <td class="govuk-table__cell"><a href="/v1/user-profile/name">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Email address</td>
+                  <td class="govuk-table__cell">{{data['email-address']}}</td>
+                  <td class="govuk-table__cell"><a href="/v1/user-profile/email">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Mobile number</td>
+                  <td class="govuk-table__cell">{{data['mobile-number']}}</td>
+                  <td class="govuk-table__cell"><a href="/v1/user-profile/mobile">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Password</td>
+                  <td class="govuk-table__cell">Last changed 10 days ago</td>
+                  <td class="govuk-table__cell"><a href="/v1/user-profile/password">Change</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>
+              <a href="/v1/user-profile/delete">Delete my account</a>
+            </p>
+
+          </section>
+
+          <section class="govuk-tabs__panel" id="subscriptions">
+            <h2 class="govuk-heading-l">Your APIs</h2>
+            {% if (data['ves-plan'] == null or data['ves-plan'] == "") and ((data['prs-plan'] == null or data['prs-plan'] == "")) %}
+            <p>You don't have any subscriptions.</p>
+            <p>Have a look through the <a href="/v1/api/">available APIs</a> to add an API to your subscription list.</p>
+
+            {% else %}
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+
+                <table class="govuk-table">
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header">Service</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header">Created</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Calls</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    {% if (data['ves-plan'] == null or data['ves-plan'] == "") %}
+                    {% else %}
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">
+                          <div class="file-list">Vehicle Enquiry Service
+                            <span class="govuk-hint">{{ data['ves-plan']}}</span>
+                          </div>
+                      </td>
+                      <!-- 14c7fc25-36dc-42ab-a0a1-2b2202b2d25b-cef3da8c-54ef-4e80-a382-ea7bfc595b47 -->
+                      <td class="govuk-table__cell govuk-table__cell">22 Nov 2019</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric">2,394</td>
+                      <td class="govuk-table__cell govuk-table__cell"><a href="/v1/api/ves#subscription">Manage</a></td>
+                    </tr>
+                    {% endif %}
+
+                    {% if (data['prs-plan'] == null or data['prs-plan'] == "") %}
+                    {% else %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            <div class="file-list">Personal Registration Sales
+                              <span class="govuk-hint">{{ data['prs-plan']}}</span>
+                            </div>
+                        </td>
+                      <!-- 14c7fc25-36dc-42ab-a0a1-2b2202b2d25b-482f66f9-0986-40ae-99fe-0ae82ce2d200 -->
+                      <td class="govuk-table__cell govuk-table__cell">3 Dec 2019</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric">538</td>
+                      <td class="govuk-table__cell govuk-table__cell"><a href="/v1/api/prs#subscription">Manage</a></td>
+                    </tr>
+                    {% endif %}
+                  </tbody>
+                </table>
+            {% endif %}
+          </section>
+
+  </div>
+</div>
+
+
+{% endblock %}

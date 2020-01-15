@@ -1,0 +1,30 @@
+{% if data['signedin'] == "true" %}
+{% extends "v1/layout_v1_signedin.html" %}
+{% else %}
+{% extends "v1/layout_v1.html" %}
+{% endif %}
+
+{% block pageTitle %}
+Unsubscription confirmation
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Unsubscription complete</h1>
+        <div class="govuk-panel__body">
+          Your API key has been revoked
+        </div>
+      </div>
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+      <p><a href="/v1/user-profile#subscriptions">View your subscriptions</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

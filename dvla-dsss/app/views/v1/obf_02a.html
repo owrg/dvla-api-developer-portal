@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DVLA data sharing self service prototype
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Question 2 of 10 (continued)</span>
+      <h1 class="govuk-heading-xl">
+        Secure API Users
+      </h1>
+      <h2 class="govuk-label govuk-label--l">
+            Please set up a Test User for your secure API
+      </h2>
+      <form action="/v1/obf_03" method="post" novalidate>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="test_user">
+            Username
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="test_user" name="test_user" type="text" aria-describedby="test_user-hint">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="test_user_password">
+            Password
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="test_user_password" name="test_user_password" type="password" aria-describedby="test_user_password-hint">
+        </div>
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+
+              </form>
+
+</div>
+
+{% endblock %}

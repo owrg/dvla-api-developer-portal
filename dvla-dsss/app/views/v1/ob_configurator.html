@@ -1,0 +1,421 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DVLA data sharing self service prototype
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-caption-l">
+  Self Service
+</h1>
+<h2 class="govuk-heading-xl">
+  API Configurator
+</h2>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p>Enter the details you know about your API:</p>
+
+
+                  <h2 class="govuk-heading-m">Key API Details</h2>
+
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        API Name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <input class="govuk-input govuk-input--width-10" id="api_name" name="api_name" type="text" aria-describedby="api_name-hint" value="{{ data['api_name'] }}">
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Security channel
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <div class="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="security_channel" name="security_channel" type="radio" value="Public" {% if data['security_channel'] == "Public" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="security_channel">
+                              Public (Open data)
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="security_channel-2" name="security_channel" type="radio" value="Private" {% if data['security_channel'] == "Private" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="security_channel-2">
+                              Private (Secure data)
+                            </label>
+                          </div>
+                        </div>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Fulfilment type
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <div class="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="fulfilment_type" name="fulfilment_type" type="radio" value="Serverless" {% if data['fulfilment_type'] == "Serverless" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="fulfilment_type">
+                              Serverless
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="fulfilment_type-2" name="fulfilment_type" type="radio" value="Non-serverless" {% if data['fulfilment_type'] == "Non-serverless" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="fulfilment_type-2">
+                              Non-serverless
+                            </label>
+                          </div>
+                        </div>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        AWS Account ID
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <input class="govuk-input govuk-input--width-10" id="aws_id" name="aws_id" type="text" aria-describedby="aws_id-hint" value="{{ data['aws_id'] }}">
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        AWS region
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <input class="govuk-input govuk-input--width-10" id="aws_region" name="aws_region" type="text" aria-describedby="aws_region-hint" value="{{ data['aws_region'] }}">
+                      </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Environments
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <span id="environments-hint" class="govuk-hint">
+                          Select all that apply.
+                        </span>
+                        <div class="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="environments" name="environments" type="checkbox" value="Squad" {% for param in data['environments'] %}{% if param==='Squad' %}checked{% endif %}{% endfor %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="environments">
+                              Squad
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="environments-2" name="environments" type="checkbox" value="Dev" {% for param in data['environments'] %}{% if param==='Dev' %}checked{% endif %}{% endfor %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="environments-2">
+                              Dev
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="environments-3" name="environments" type="checkbox" value="Int" {% for param in data['environments'] %}{% if param==='Int' %}checked{% endif %}{% endfor %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="environments-3">
+                              Int
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="environments-3" name="environments" type="checkbox" value="UAT" {% for param in data['environments'] %}{% if param==='UAT' %}checked{% endif %}{% endfor %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="environments-3">
+                              UAT
+                            </label>
+                          </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="environments-4" name="environments" type="checkbox" value="Pre-Prod" {% for param in data['environments'] %}{% if param==='Pre-Prod' %}checked{% endif %}{% endfor %}>
+                          <label class="govuk-label govuk-checkboxes__label" for="environments-4">
+                            Pre-Prod
+                          </label>
+                        </div>
+                      </div>
+
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Open API location
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <input class="govuk-input govuk-input--width-20" id="openapi_location" name="openapi_location" type="text" aria-describedby="openapi_location-hint" value="{{ data['openapi_location'] }}">
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <div class="govuk-summary-list__row">
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                      <dt class="govuk-summary-list__key">
+                        <h2 class="govuk-heading-m">Usage Plan</h2>
+                      </dt>
+                    </div>
+
+                  <h3 class="govuk-heading-s">Development</h3>
+
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Rate
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['max_reqs'] }} (requests per second)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Burst
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['max_users'] }}
+                      </dd>
+                    </div>
+                  </dl>
+
+
+                  <h3 class="govuk-heading-s">Pre-Production</h3>
+
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Rate
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        100 (requests per second)
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Burst
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        100
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <h2 class="govuk-heading-m">Further details</h2>
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Developer Portal
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <span id="environments-hint" class="govuk-hint">
+                          Select all that apply.
+                        </span>
+                        <div class="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="devportal" name="devportal" type="checkbox" value="Internal" {% for param in data['devportal'] %}{% if param==='Internal' %}checked{% endif %}{% endfor %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="devportal">
+                              Internal developer portal (<a href="https://internal.developer-portal.driver-vehicle-licensing.api.gov.uk/" target="_blank">link</a>)
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="devportal-2" name="devportal" type="checkbox" value="External" {% for param in data['devportal'] %}{% if param==='External' %}checked{% endif %}{% endfor %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="environments-2">
+                              External developer portal (<a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/#internal-dvla-api-developer-portal" target="_blank">link</a>)
+                            </label>
+                          </div>
+                      </div>
+                        {{ data['devportal'] }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        API Documentation
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <input class="govuk-input govuk-input--width-20" id="devportal_location" name="devportal_location" type="text" aria-describedby="devportal_location-hint" value="{{ data['devportal_location'] }}">
+                      </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Sensitive logging data?
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <div class="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="sensitive_data" name="sensitive_data" type="radio" value="Yes" {% if data['sensitive_data'] == "Yes" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="sensitive_data">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="sensitive_data-2" name="sensitive_data" type="radio" value="No" {% if data['sensitive_data'] == "No" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="sensitive_data-2">
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Availability
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <textarea class="govuk-textarea govuk-js-character-count " id="availability" name="availability" rows="5" aria-describedby="availability-info availability-hint">{{ data['availability'] }}</textarea>
+                      </dd>
+                    </div>
+
+                  </dl>
+                </div>
+
+    <div class="govuk-grid-column-one-third">
+      <p>Your API configuration files will automatically update here:</p>
+
+            <h3 class="govuk-heading-m">apiConfig.yaml</h3>
+            {% if data['fulfilment_type']=="Serverless" %}
+            <pre id="apiConfigCode">
+apiName: "{{ data['api_name'] }}"
+customDomainName: "TODO{{ data['customDomainName'] }}"
+basePath: TODO {{ data['basePath'] }}
+fulfilmentType: "fulfill-to-lambda"
+fulfillToLambda:
+ lambdaName:  "{{ data['lambda_name'] }}"
+ lambdaAccount: {{ data['aws_id'] }}
+ lambdaRegion: {{ data['aws_region'] }}
+stages:
+ {{ data['environments'] }}:
+   fulfillToLambda:
+     lambdaName:  "{{ data['lambda_name'] }}"
+     lambdaAccount: {{ data['aws_id'] }}
+     lambdaRegion: {{ data['aws_region'] }}
+   stageRateLimit: {{ data['max_reqs'] }}
+   stageBurstLimit: {{ data['max_users'] }}
+             </pre>
+            {% else %}
+            <pre id="apiConfigCode">
+apiName: "{{ data['api_name'] }}"
+customDomainName: "{{ data['api_name'] }}"
+basePath: "{{ data['api_name'] }}"
+fulfilmentType: "fulfill-to-lambda"
+healthcheckEndpoint: '{{ data['api_name'] }}'
+maintenanceResponse: {{ data['api_name'] }}
+fulfillToLambda:
+lambdaName:  "{{ data['api_name'] }}"
+region: {{ data['api_name'] }}
+stages:
+{{ data['api_name'] }}:
+  customDomainName: {{ data['api_name'] }}
+{{ data['api_name'] }}:
+  fulfillToLambda:
+    region: {{ data['api_name'] }}
+{{ data['api_name'] }}:
+  customDomainName: {{ data['api_name'] }}
+  fulfillToLambda:
+    region: {{ data['api_name'] }}
+           </pre>
+            {% endif %}
+            <button id="buttonCopyConfig" class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="copyCode('apiConfigCode',this.id)">Copy code</button>
+
+
+            <h3 class="govuk-heading-m">usagePlanConfig.yaml</h3>
+            <pre id="usagePlanConfigCode">
+              usagePlanStackName: "{{ data['api_name'] }}"
+              plans:
+               {{ data['api_name'] }}-default-volume:
+                 rateLimit: {{ data['max_reqs'] }}
+                 burstLimit: {{ data['max_users'] }}
+                 apis:
+                   - "{{ data['api_name'] }}"
+            </pre>
+            <button id="buttonCopyUsage" class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="copyCode('usagePlanConfigCode',this.id)">Copy code</button>
+</div>
+
+<div id="divTextbox" style="display: none"><input id="copyme"></input></div>
+<script type="text/javascript">
+  window.onload = function() {
+    var input_apiName = document.getElementById("api_name")
+    var input_awsAccount = document.getElementById("aws_id")
+    var input_awsRegion = document.getElementById("aws_region")
+    var input_fulfilmentType = document.getElementById("fulfilment_type")
+    var input_fulfilmentType2 = document.getElementById("fulfilment_type-2")
+
+    input_apiName.onkeyup=updateAPiConfig;
+    input_awsAccount.onkeyup=updateAPiConfig;
+    input_awsRegion.onkeyup=updateAPiConfig;
+    input_fulfilmentType.onchange=updateAPiConfig;
+    input_fulfilmentType2.onchange=updateAPiConfig;
+  };
+
+
+  function updateAPiConfig(){
+    var inputValue_apiName = document.getElementById("api_name").value
+    var inputValue_awsAccount = document.getElementById("aws_id").value
+    var inputValue_awsRegion = document.getElementById("aws_region").value
+    var inputValue_fulfilmentType = document.querySelector('input[name="fulfilment_type"]:checked').value
+
+    var output_apiConfig = document.getElementById("apiConfigCode")
+    if (inputValue_fulfilmentType === "Serverless"){
+    output_apiConfig.innerHTML = `
+apiName: "` + inputValue_apiName + `"
+customDomainName: "TODO{{ data['customDomainName'] }}"
+basePath: TODO {{ data['basePath'] }}
+fulfilmentType: "fulfill-to-lambda"
+fulfillToLambda:
+ lambdaName:  "{{ data['lambda_name'] }}"
+ lambdaAccount: ` + inputValue_awsAccount + `
+ lambdaRegion: ` + inputValue_awsRegion + `
+stages:
+ {{ data['environments'] }}:
+   fulfillToLambda:
+     lambdaName:  "{{ data['lambda_name'] }}"
+     lambdaAccount: ` + inputValue_awsAccount + `
+     lambdaRegion: ` + inputValue_awsRegion + `
+   stageRateLimit: {{ data['max_reqs'] }}
+   stageBurstLimit: {{ data['max_users'] }}`
+ } else {
+   output_apiConfig.innerHTML = `
+apiName: "` + inputValue_apiName + `"
+customDomainName: "{{ data['api_name'] }}"
+basePath: "{{ data['api_name'] }}"
+fulfilmentType: "fulfill-to-lambda"
+healthcheckEndpoint: '{{ data['api_name'] }}'
+maintenanceResponse: {{ data['api_name'] }}
+fulfillToLambda:
+lambdaName:  "{{ data['api_name'] }}"
+region: ` + inputValue_awsRegion + `
+stages:
+{{ data['api_name'] }}:
+ customDomainName: {{ data['api_name'] }}
+{{ data['api_name'] }}:
+ fulfillToLambda:
+   region: ` + inputValue_awsRegion + `
+{{ data['api_name'] }}:
+ customDomainName: {{ data['api_name'] }}
+ fulfillToLambda:
+   region: ` + inputValue_awsRegion
+ }
+
+
+  }
+
+  function copyCode(element,button) {
+    var b = document.getElementById(button)
+    console.log("Button: "+ button + " _ " + b.innerHTML)
+    var e = document.getElementById(element).innerText
+    var i =document.getElementById("copyme");
+    var d=document.getElementById("divTextbox");
+    d.style.display="block";
+    i.value = e;
+    i.select();
+    document.execCommand("copy");
+    i.value = '';
+    d.style.display="none";
+    b.innerHTML = "Code copied"
+    b.class="govuk-button govuk-button--disabled"
+    b.disabled="disabled"
+    setTimeout(function () {
+      b.innerHTML = "Copy code"
+      b.class="govuk-button govuk-button--secondary"
+      b.disabled=""
+    }, 5000);
+  }
+
+
+  function resetButtonText(b) {
+  }
+</script>
+
+{% endblock %}

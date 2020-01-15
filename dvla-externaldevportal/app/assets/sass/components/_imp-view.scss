@@ -1,0 +1,31 @@
+.imp-header {
+  display: inline-block;
+  height: 150px;
+  width: 1100px; //2396px;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+  background-image: url("/public/images/IMP_CreateOpenDataAPIUser.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: contain;
+}
+
+.imp-input {
+  margin-bottom: 25px;
+}
+
+.imp-messageblock {
+  display: block;
+  position: absolute;
+  top: 105px;
+  left: 220px;
+  width: 870px;
+  border:0px solid #FF0000;
+  padding: 0px;
+  font-family: 'Roboto';
+  font-size: 17px;
+  color: #a5a5a5;
+}

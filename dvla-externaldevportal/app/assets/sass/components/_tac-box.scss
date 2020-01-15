@@ -1,0 +1,27 @@
+.tac-box {
+  background-color: #faf9f8;
+  overflow-y: scroll;
+  height: 300px;
+  width: 100%;
+  border: 1px solid #DDD;
+  padding: 10px;
+//  font-size: 0.8em !important;
+  font-family: "GDS Transport", Arial, sans-serif;
+}
+
+.tac-box thead{
+  font-weight: bold;
+  background-color: #eee;
+}
+.tac-box table {
+  border-collapse: collapse;
+  background-color: #fff;
+}
+.tac-box table td {
+//  font-size: 12px;
+  border:1px solid #777;
+  padding: 5px;
+}
+.tac-box h4{
+  font-size: 12px;
+}

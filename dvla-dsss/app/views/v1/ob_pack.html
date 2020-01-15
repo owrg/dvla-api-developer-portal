@@ -1,0 +1,320 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DVLA data sharing self service prototype
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-caption-l">
+        {{ data['api_name'] }}
+      </h1>
+      <h2 class="govuk-heading-xl">
+        API Onboarding pack
+      </h2>
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Congratulations!
+        </h1>
+        <div class="govuk-panel__body">
+          Here is your <strong>{{ data['api_name'] }}</strong> Onboarding pack
+        </div>
+      </div>
+
+      <p>
+        Thank you for completing the DVLA data sharing application form.
+      </p>
+      <p>
+        This pack contains the basic information you need to onboard your <span class="govuk-body govuk-!-font-weight-bold">{{ data['api_name'] }}</span> onto the DVLA data sharing platform.
+      </p>
+
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Summary of information provided
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <p class='govuk-body'>
+              The information that you submitted in the onboarding application is summarised below:
+            </p>
+
+            <h2 class="govuk-heading-m">Key API Details</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  API Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['api_name'] }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Security channel
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['security_channel'] }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Fulfilment type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['fulfilment_type'] }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  AWS Account ID
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['aws_id'] }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Environments
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['environments'] }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Open API location
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['openapi_location'] }}
+                </dd>
+              </div>
+            </dl>
+
+            <div class="govuk-summary-list__row">
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <dt class="govuk-summary-list__key">
+                  <h2 class="govuk-heading-m">Usage Plan</h2>
+                </dt>
+              </div>
+
+            <h3 class="govuk-heading-s">Development</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Rate
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['max_reqs'] }} (requests per second)
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Burst
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['max_users'] }}
+                </dd>
+              </div>
+            </dl>
+
+
+            <h3 class="govuk-heading-s">Pre-Production</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Rate
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  100 (requests per second)
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Burst
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  100
+                </dd>
+              </div>
+            </dl>
+
+            <h2 class="govuk-heading-m">Further details</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Developer Portal
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['devportal'] }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  API Documentation
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['devportal_location'] }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Sensitive logging data?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['sensitive_data'] }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Availability
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['availability'] }}
+                </dd>
+              </div>
+
+            </dl>
+
+
+
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                {% if data['fulfilment_type']=="Serverless" %}
+                Serverless
+                {% else %}
+                Non-serverless
+                {% endif %}
+                API configuration file
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+            <h3 class="govuk-heading-m">apiConfig.yaml</h3>
+            <p class='govuk-body'>This is the file that defines your API's configuration.</p>
+            <h4 class="govuk-heading-s">Guidance</h4>
+            <p class='govuk-body'>Create an apiConfig.yaml file in your repository, then copy and paste the code below into it</p>
+            {% if data['fulfilment_type']=="Serverless" %}
+            <pre id="apiConfigCode">
+              apiName: "{{ data['api_name'] }}"
+              customDomainName: "TODO{{ data['customDomainName'] }}"
+              basePath: TODO {{ data['basePath'] }}
+              fulfilmentType: "fulfill-to-lambda"
+              fulfillToLambda:
+               lambdaName:  "{{ data['lambda_name'] }}"
+               lambdaAccount: {{ data['aws_id'] }}
+               lambdaRegion: {{ data['aws_region'] }}
+              stages:
+               {{ data['environments'] }}:
+                 fulfillToLambda:
+                   lambdaName:  "{{ data['lambda_name'] }}"
+                   lambdaAccount: {{ data['aws_id'] }}
+                   lambdaRegion: {{ data['aws_region'] }}
+                 stageRateLimit: {{ data['max_reqs'] }}
+                 stageBurstLimit: {{ data['max_users'] }}
+             </pre>
+            {% else %}
+            <pre id="apiConfigCode">
+             apiName: "{{ data['api_name'] }}"
+             customDomainName: "{{ data['api_name'] }}"
+             basePath: "{{ data['api_name'] }}"
+             fulfilmentType: "fulfill-to-lambda"
+             healthcheckEndpoint: '{{ data['api_name'] }}'
+             maintenanceResponse: {{ data['api_name'] }}
+             fulfillToLambda:
+              lambdaName:  "{{ data['api_name'] }}"
+              region: {{ data['api_name'] }}
+             stages:
+              {{ data['api_name'] }}:
+                customDomainName: {{ data['api_name'] }}
+              {{ data['api_name'] }}:
+                fulfillToLambda:
+                  region: {{ data['api_name'] }}>
+              {{ data['api_name'] }}:
+                customDomainName: {{ data['api_name'] }}
+                fulfillToLambda:
+                  region: {{ data['api_name'] }}
+           </pre>
+            {% endif %}
+            <button id="buttonCopyConfig" class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="copyCode('apiConfigCode',this.id)">Copy code</button>
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                API usage plan file
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+            <h3 class="govuk-heading-m">usagePlanConfig.yaml</h3>
+            <p class='govuk-body'>This is the file that defines your API's usage plan.</p>
+            <h4 class="govuk-heading-s">Guidance</h4>
+            <p class='govuk-body'>Create an usagePlanConfig.yaml file in your repository, then copy and paste the code below into it</p>
+            <pre id="usagePlanConfigCode">
+              usagePlanStackName: "{{ data['api_name'] }}"
+              plans:
+               {{ data['api_name'] }}-default-volume:
+                 rateLimit: {{ data['max_reqs'] }}
+                 burstLimit: {{ data['max_users'] }}
+                 apis:
+                   - "{{ data['api_name'] }}"
+            </pre>
+            <button id="buttonCopyUsage" class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="copyCode('usagePlanConfigCode',this.id)">Copy code</button>
+          </div>
+        </div>
+      </div>
+
+      <p>If you would like to change your answer you can either:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>start the <a href="/v1">step by step guide again</a><br>for users new to API on-boarding</li>
+        <li>use the <a href="/v1/ob_configurator">advanced configurator</a><br>for users familiar with Api on-boarding</li>
+      </ul>
+
+
+</div>
+<div id="divTextbox" style="display: none"><input id="copyme"></input></div>
+<script type="text/javascript">
+  function copyCode(element,button) {
+    var b = document.getElementById(button)
+    console.log("Button: "+ button + " _ " + b.innerHTML)
+    var e = document.getElementById(element).innerText
+    var i =document.getElementById("copyme");
+    var d=document.getElementById("divTextbox");
+    d.style.display="block";
+    i.value = e;
+    i.select();
+    document.execCommand("copy");
+    i.value = '';
+    d.style.display="none";
+    b.innerHTML = "Code copied"
+    b.class="govuk-button govuk-button--disabled"
+    b.disabled="disabled"
+    setTimeout(function () {
+      b.innerHTML = "Copy code"
+      b.class="govuk-button govuk-button--secondary"
+      b.disabled=""
+    }, 5000);
+  }
+
+
+  function resetButtonText(b) {
+  }
+</script>
+
+{% endblock %}

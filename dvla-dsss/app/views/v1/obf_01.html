@@ -1,0 +1,36 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DVLA data sharing self service prototype
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Question 1 of 10</span>
+      <h1 class="govuk-heading-xl">
+        API Name
+      </h1>
+      <form action="/v1/obf_02" method="post" novalidate>
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-label--m" for="api_name">
+                    What is your API called?
+                  </label>
+                  <span id="api_name-hint" class="govuk-hint">
+                    It must be unique. For example, Vehicle-Enquiry-Service
+                  </span>
+                  <input class="govuk-input govuk-input--width-10" id="api_name" name="api_name" type="text" aria-describedby="api_name-hint">
+                </div>
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+
+              </form>
+
+</div>
+
+{% endblock %}

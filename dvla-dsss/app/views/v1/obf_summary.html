@@ -1,0 +1,246 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DVLA data sharing self service prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <a href="/v1/obf_10" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">Review your answers</h1>
+
+        <h2 class="govuk-heading-m">Key API Details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              API Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['api_name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_01">
+                Change<span class="govuk-visually-hidden"> API name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Security channel
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['security_channel'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_02">
+                Change<span class="govuk-visually-hidden"> security channel</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Fulfilment type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fulfilment_type'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_03">
+                Change<span class="govuk-visually-hidden"> fulfilment type</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              AWS Account ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['aws_id'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_04">
+                Change<span class="govuk-visually-hidden"> AWS ID</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Environments
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['environments'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_05">
+                Change<span class="govuk-visually-hidden"> environments</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Open API location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['openapi_location'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_06">
+                Change<span class="govuk-visually-hidden"> environments</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+
+
+        <div class="govuk-summary-list__row">
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <dt class="govuk-summary-list__key">
+              <h2 class="govuk-heading-m">Usage Plan</h2>
+            </dt>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_07">
+                Change<span class="govuk-visually-hidden"> usage plan</span>
+              </a>
+            </dd>
+          </div>
+
+        <h3 class="govuk-heading-s">Development</h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Rate
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['max_reqs'] }} (requests per second)
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Burst
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['max_users'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        </dl>
+
+
+        <h3 class="govuk-heading-s">Pre-Production</h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Rate
+            </dt>
+            <dd class="govuk-summary-list__value">
+              100 (requests per second)
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Burst
+            </dt>
+            <dd class="govuk-summary-list__value">
+              100
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        </dl>
+
+
+
+        <h2 class="govuk-heading-m">Further details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Developer Portal
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['devportal'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              API Documentation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['devportal_location'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_08">
+                Change<span class="govuk-visually-hidden"> documentation</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Sensitive logging data?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['sensitive_data'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_09">
+                Change<span class="govuk-visually-hidden"> sensitive logging data</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Availability
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['availability'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/v1/obf_10">
+                Change<span class="govuk-visually-hidden"> availability</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+
+
+
+        <h2 class="govuk-heading-m">Now retrieve your API Onboarding pack</h2>
+
+        <p class="govuk-body">By submitting your information, you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+        <form action="/v1/ob_pack" method="post" novalidate>
+
+          <input type="hidden" name="answers-checked" value="true">
+
+          <button class="govuk-button" data-module="govuk-button">
+            Retrieve my API Onboarding pack
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

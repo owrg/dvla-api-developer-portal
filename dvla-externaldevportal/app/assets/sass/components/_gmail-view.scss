@@ -1,0 +1,72 @@
+.gmail-header {
+  display: inline-block;
+  height: 150px;
+  width: 1100px; //2396px;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+  background-image: url("/public/images/gmail_full_blank.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: contain;
+}
+
+.gmail-subject {
+  font-family: 'Roboto';
+  font-size: 22px;
+  color: #202224;
+  margin-bottom: 25px;
+}
+
+
+
+.gmail-sender {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: bold;
+  color: #202224;
+  margin-bottom: 5px;
+}
+
+.gmail-sender-email {
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-size: 12px;
+  color: #555555;
+}
+
+
+.gmail-date {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: normal;
+  color: #5e6367;
+  margin-left: 300px;
+}
+
+.gmail-to {
+  font-family: 'Roboto';
+  font-size: 12px;
+  color: #555555;
+  margin-bottom: 30px;
+}
+
+.gmail-messageblock {
+  display: block;
+  position: absolute;
+  top: 145px;
+  left: 100px;
+  width: 870px;
+  border:0px solid #FF0000;
+  padding: 0px;
+}
+
+.gmail-message p {
+  font-size: 0.8em !important;
+}
+
+.govuk-summary-list {
+  font-size: 0.8em !important;
+}

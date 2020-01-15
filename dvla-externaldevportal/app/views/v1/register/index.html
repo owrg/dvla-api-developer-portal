@@ -1,0 +1,68 @@
+{% if data['signedin'] == "true" %}
+{% extends "v1/layout_v1_signedin.html" %}
+{% else %}
+{% extends "v1/layout_v1.html" %}
+{% endif %}
+
+{% block pageTitle %}
+  Create an account
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Create an account
+            </h1>
+          </legend>
+          <form action="/v1/register/confirm-email" method="post">
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-town">
+              Full name
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="full-name" name="full-name" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="email-address">
+              Email address
+            </label>
+            <span id="mobile-number-hint" class="govuk-hint">
+              We’ll send you a security link by email
+            </span>
+            <input class="govuk-input govuk-!-width-two-thirds" id="email-address" name="email-address" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="mobile-number">
+              Mobile number
+            </label>
+            <span id="mobile-number-hint" class="govuk-hint">
+              We’ll send you a security code by text message
+            </span>
+            <input class="govuk-input govuk-input--width-10" id="mobile-number" name="mobile-number" type="text">
+          </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-password">
+                Password
+              </label>
+              <span id="mobile-number-hint" class="govuk-hint">
+              At least 8 characters
+              </span>
+              <input class="govuk-input govuk-!-width-two-thirds" id="address-password" name="address-password" type="password" value="Password1">
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button" href="">
+              Continue
+            </button>
+          </form>
+        </fieldset>
+
+</div>
+</div>
+
+{% endblock %}

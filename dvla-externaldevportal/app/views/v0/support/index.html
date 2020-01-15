@@ -1,0 +1,65 @@
+{% if data['signedin'] == "true" %}
+{% extends "v0/layout_v0_signedin.html" %}
+{% else %}
+{% extends "v0/layout_v0.html" %}
+{% endif %}
+
+{% block pageTitle %}
+Support
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Support
+    </h1>
+    <p class="govuk-body">
+      Please contact <a href="mailto:dvlaapiaccess@dvla.gov.uk">dvlaapiaccess@dvla.gov.uk</a> with your query if you:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>experience any issues</li>
+      <li>have questions regarding DVLA APIs</li>
+      <li>or encounter an error that is not contained in the documentation</li>
+    </ul>
+
+
+    <h1 class="govuk-heading-l">
+      Common Questions and Answers
+    </h1>
+    <h3 class="govuk-heading-m">
+      When will the DVLA be developing further APIs?
+    </h3>
+    <p>
+      The DVLA is transforming all of its services and as part of this process has committed to establishing and developing further APIs to support our aim of keeping the roads safe for the public and ensure compliance with law.
+    </p>
+    <p>
+      We will from time to time release further APIs and documentation on this service.
+    </p>
+
+    <h3 class="govuk-heading-m">
+      Are all DVLA APIs restful?
+    </h3>
+    <p>
+      We aim to align with the conventional RESTFUL API standards as much as possible.
+    </p>
+
+    <h3 class="govuk-heading-m">
+      What if I encounter an error that is not contained in the documentation?
+    </h3>
+    <p>
+      Please contact <a href="mailto:dvlaapiaccess@dvla.gov.uk">dvlaapiaccess@dvla.gov.uk</a> if not included in the relevant API error specification or in <a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/commonerrors.html">common errors</a>.
+    </p>
+
+    <h3 class="govuk-heading-m">
+      Does the DVLA have a data sharing strategy?
+    </h3>
+    <p>
+      The DVLA’s data sharing stategy can be viewed on <a href="https://www.gov.uk/government/publications/dvla-data-sharing-strategy">GOV.UK</a>.
+    </p>
+
+
+  </div>
+</div>
+
+{% endblock %}

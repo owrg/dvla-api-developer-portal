@@ -1,0 +1,48 @@
+{% if data['signedin'] == "true" %}
+{% extends "v1/layout_v1_signedin.html" %}
+{% else %}
+{% extends "v1/layout_v1.html" %}
+{% endif %}
+
+{% block pageTitle %}
+Sign In
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Sign In
+        </h1>
+      </legend>
+      <p>If you do not have an account, you can <a href="/v1/register">create one now</a></p>
+        <form action="/v1/signin/2fa" method="post">
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="email-address">
+              Email address
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="email-address" name="email-address" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-password">
+              Password
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-password" name="address-password" type="password">
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button" href="">
+            Continue
+          </button>
+        </form>
+    </fieldset>
+
+    <p><a href="/v1/signin/forgot-password">Forgot your password?</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

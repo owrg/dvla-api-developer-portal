@@ -1,0 +1,137 @@
+{% if data['signedin'] == "true" %}
+{% extends "v0/layout_v0_signedin.html" %}
+{% else %}
+{% extends "v0/layout_v0.html" %}
+{% endif %}
+
+{% block pageTitle %}
+Vehicle Enquiry Service
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Vehicle Enquiry Service API
+    </h1>
+    <h2 class="govuk-heading-l">
+      Introduction
+    </h2>
+    <p>
+      The DVLA Vehicle Enquiry API is a RESTful service that provides vehicle details of a specified vehicle. It uses the vehicle registration number as input to search and provide details of the vehicle. The response data is provided in JSON format.
+      The functional specification of this format is detailed in the OpenAPI 3.0 documentation below:
+    </p>
+
+
+    <div class="govuk-inset-text">
+      For more details visit the <a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/v1.1.0-vehicle-enquiry-service.html">OpenAPI specification page.</a>
+      <a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/swagger/vehicle-enquiry-service/v1.1.0-vehicle-enquiry-service.json">You can also view the OpenAPI specification in JSON format.</a>
+    </div>
+
+    <h2 class="govuk-heading-l">
+      Apply for VES API
+    </h2>
+
+    <p>
+      If you want to apply for this API, please click the button below:
+    </p>
+    <a href="register-for-ves-api.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Apply
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    </a>
+
+
+    <h2 class="govuk-heading-l">
+      Usage
+    </h2>
+
+    <p>
+      To call the API, issue an HTTP POST request to the following URL:
+    </p>
+    <div class="govuk-inset-text">
+      <p>
+        <code>https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles</code>
+      </p>
+    </div>
+
+    <p>
+      Header Parameter: Every client is issued an API Key which is passed into the request as a mandatory named header as follows:
+    </p>
+    <div class="govuk-inset-text">
+      <p>
+        name: <code>x-api-key</code><br />
+        value: <code>{supplied API key}</code><br />
+        body: <code>{"registrationNumber": "ABC1234"}</code>
+      </p>
+    </div>
+
+    <p>
+      OWASP security guidelines dictate that sensitive information should not be included in URLs. This reduces the risk of sensitive information being unnecessarily recorded in Web Server logs. The vehicle registration number is deemed sensitive
+      information in accordance with the Information Commissioner’s Office (ICO), so is passed in the body as a POST request.
+    </p>
+
+    <h2 class="govuk-heading-m">Response</h2>
+    <p>
+      A sample JSON response is below:
+    </p>
+
+    <div class="govuk-inset-text">
+      <p>
+        <code>
+          {
+          <br />&nbsp;&nbsp;"artEndDate": "2025-02-28",
+          <br />&nbsp;&nbsp;"co2Emissions" : 135
+          <br />&nbsp;&nbsp;"colour" : "BLUE"
+          <br />&nbsp;&nbsp;"engineCapacity": 2494,
+          <br />&nbsp;&nbsp;"fuelType" : "PETROL"
+          <br />&nbsp;&nbsp;"make" : "ROVER"
+          <br />&nbsp;&nbsp;"markedForExport" : false
+          <br />&nbsp;&nbsp;"monthOfFirstRegistration" : "2004-12"
+          <br />&nbsp;&nbsp;"motStatus" : "No details held by DVLA"
+          <br />&nbsp;&nbsp;"registrationNumber" : "ABC1234"
+          <br />&nbsp;&nbsp;"revenueWeight" : 1640
+          <br />&nbsp;&nbsp;"taxDueDate" : "2007-01-01"
+          <br />&nbsp;&nbsp;"taxStatus" : "Untaxed"
+          <br />&nbsp;&nbsp;"typeApproval" : "N1"
+          <br />&nbsp;&nbsp;"wheelplan" : "NON STANDARD"
+          <br />&nbsp;&nbsp;"yearOfManufacture" : 2004
+          <br />&nbsp;&nbsp;"euroStatus": "EURO 6 AD"
+          <br />&nbsp;&nbsp;"realDrivingEmissions": "1"
+          <br />&nbsp;&nbsp;"dateOfLastV5CIssued": "2016-12-25"
+          <br />}
+        </code>
+      </p>
+    </div>
+
+    <h3 class="govuk-heading-s">Error Responses</h3>
+    <p>
+      The functional OpenAPI specification referenced above lists the error format and values returned from the enquiry service itself. In addition to this, the common errors section gives errors that may be thrown by the surrounding framework.
+    </p>
+
+    <h2 class="govuk-heading-m">Usage Plans and Throttling Limits</h2>
+
+    <p>
+      We have introduced limits on API usage rates in terms of requests per second. This applies to both individual clients and collective usage for all clients.
+    </p>
+
+    <p>
+      <ul class="govuk-list govuk-list--number">
+        <ol>
+          A client’s limit is set based on the usage plan that the client is subscribed to
+        </ol>
+        <ol>
+          As clients access the API at the same time, there is an overall limit on how many requests are allowed per second in order to protect the service
+        </ol>
+      </ul>
+    </p>
+    <p>
+      These two scenarios will return an HTTP status code of 429 as specified in the <a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/commonerrors.html">common errors</a> section.
+    </p>
+
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DVLA data sharing self service prototype
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Question 3 of 10</span>
+      <h1 class="govuk-heading-xl">
+        API fulfilment type
+      </h1>
+      <form action="/v1/obf/fulfillment" method="post" novalidate>
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-label--m" for="fulfilment_type">
+                    What type of fulfiment does your API use?
+                  </label>
+
+                    <div class="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="fulfilment_type" name="fulfilment_type" type="radio" value="Serverless">
+                        <label class="govuk-label govuk-radios__label" for="fulfilment_type">
+                          Serverless
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="fulfilment_type-2" name="fulfilment_type" type="radio" value="Non-serverless">
+                        <label class="govuk-label govuk-radios__label" for="fulfilment_type-2">
+                          Non-serverless
+                        </label>
+                      </div>
+                    </div>
+
+                </div>
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+
+              </form>
+
+</div>
+
+{% endblock %}

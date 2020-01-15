@@ -1,0 +1,131 @@
+.product-page-intro {
+  position: relative;
+  margin: -85px 0px 45px 0px;
+  padding: 0px 0px 40px;
+  background: #1d70b8; //#005ea5;
+  color: #fff;
+  width: 100%;
+}
+@media (min-width:769px) {
+  .product-page-intro-wrapper {
+    background-image: url("../images/apigatewaylogo_white.png");
+    background-size: 180px;
+    background-repeat: no-repeat;
+    background-position: right 50px top 50px;
+  }
+}
+
+.product-page-intro h1 {
+  font-family: Arial,sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 32px;
+  line-height: 1.09375;
+  padding: 30px 300px 0px 30px;
+}
+@media (min-width:641px) {
+  .product-page-intro h1 {
+    font-size: 48px;
+    line-height: 1.04167;
+  }
+}
+
+.product-page-intro p {
+  color: #fff;
+  font-family: nta,Arial,sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 0px 300px 0px 30px;
+}
+@media (min-width:641px) {
+  .product-page-intro p {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+}
+
+.product-page-intro .button-container {
+  line-height: 45px;
+}
+
+.product-page-intro .button {
+  -webkit-box-shadow: 0 2px 0 #003259;
+  -moz-box-shadow: 0 2px 0 #003259;
+  box-shadow: 0 2px 0 #003259;
+  background: #fff;
+  padding: 8px 15px 8px 15px;
+
+/*
+  margin-right: 15px;
+  padding-right: 1.25em;
+*/
+}
+
+.product-page-intro .button:hover,
+.product-page-intro .button:link,
+.product-page-intro .button:visited {
+  color: #005ea5;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.product-page-intro .button:hover {
+  background: #d5e8f3;
+  outline: 0;
+}
+
+.product-page-intro a:link,
+.product-page-intro a:visited {
+  color: #fff;
+}
+
+.product-page-intro a:active,
+.product-page-intro a:hover {
+  color: #d5e8f3;
+}
+
+.product-page-section {
+  margin-bottom: 15px;
+}
+
+.product-page-section h2 {
+  font-family: nta,Arial,sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 20px;
+  line-height: 1.11111;
+  margin: 0 0 30px;
+}
+@media (min-width:641px) {
+  .product-page-section h2 {
+    font-size: 27px;
+    line-height: 1.11111;
+  }
+}
+
+.product-page-section .with-keyline {
+  border-top: 1px solid #bfc1c3;
+  padding: 45px 0 0;
+}
+
+.product-page-section img {
+  //width: 100%;
+  margin: 0 0 45px;
+}
+
+.product-page-big-number {
+  font-family: ntatabularnumbers,nta,Arial,sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 32px;
+  line-height: 1.09375;
+  margin: 0;
+}
+@media (min-width:641px) {
+  .product-page-big-number {
+    font-size: 48px;
+    line-height: 1.04167;
+  }
+}

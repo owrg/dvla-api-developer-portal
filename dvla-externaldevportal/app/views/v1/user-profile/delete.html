@@ -1,0 +1,42 @@
+{% if data['signedin'] == "true" %}
+{% extends "v1/layout_v1_signedin.html" %}
+{% else %}
+{% extends "v1/layout_v1.html" %}
+{% endif %}
+
+{% block pageTitle %}
+  Delete your account
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Delete account
+            </h1>
+          </legend>
+          <form action="/v1/user-profile/deleted" method="post">
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="email-address">
+                Confirm you wish to delete your account
+              </label>
+              <span id="mobile-number-hint" class="govuk-hint">
+                Enter "I understand" in the text box below to confirm that you understand this action cannot be un-done.
+              </span>
+              <input class="govuk-input govuk-!-width-two-thirds" id="delete-account" name="delete-account" type="text" value="I understand">
+              <input id="signedin" name="signedin" type="hidden" value="false">
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button" href="">
+              Continue
+            </button>
+          </form>
+        </fieldset>
+
+</div>
+</div>
+
+{% endblock %}
