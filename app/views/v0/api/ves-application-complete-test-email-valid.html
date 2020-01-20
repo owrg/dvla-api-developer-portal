@@ -1,0 +1,33 @@
+{% if data['signedin'] == "true" %}
+{% extends "v0/layout_v0_signedin.html" %}
+{% else %}
+{% extends "v0/layout_v0.html" %}
+{% endif %}
+
+{% block pageTitle %}
+Email confirmation
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Email confirmed</h1>
+      </div>
+
+      <p>
+        Your application for an API key for the <strong>Vehicle Enquires Service</strong> - <strong>Test environment</strong> has been submitted.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>
+        Our <a href="/v0/api/dsst-ves-application-request" target="_blank">Digital Service Support Team</a> will process your request within 5 working days.
+      </p>
+      <p>
+        We will send you a confirmation <a href="/v0/api/ves-application-complete-test-email-api" target="_blank">email</a>.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

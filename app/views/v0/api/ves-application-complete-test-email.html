@@ -13,7 +13,7 @@ Consumer confirmation email
       DVLA Open Data API Application
     </div>
       <div class="gmail-sender">
-        DVLA Secure Access <span class="gmail-sender-email">&lt;DVLASecureAccessInternal@dvla.gov.uk&gt;</span>
+        DVLA API Access <span class="gmail-sender-email">&lt;DVLAAPIAccess@dvla.gov.uk&gt;</span>
       <span class="gmail-date">
         {{data['application-date']|dateInTimeFormat}} (0 minutes ago)
       </span>
@@ -23,88 +23,28 @@ Consumer confirmation email
       </div>
       <div class="gmail-message">
         <p>
-          Your application for an API key for the <strong>Vehicle Enquires Service</strong> - <strong>Test environment</strong> has been submitted.
-          <br/>Our Digital Service Support Team will process your request within 5 working days.
+          You recently submitted an application for an API key for the <strong>DVLA Vehicle Enquires Service</strong> - <strong>Test environment</strong>.
         </p>
  
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Company name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['company-name']}}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Contact email address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['email-address']}}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['full-name']}}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['address-line-1']}}<br />
-              {{data['address-line-2']}}<br />
-              {{data['address-town']}}<br />
-              {{data['address-postcode']}}<br />
-              {{data['address-country']}}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Contact phone number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['contact-number']}}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Intended use of the data
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['intended-use']}}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Data environment
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['VESenvironment']}}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Support Name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['notifications-name']}}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Support Email
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['notifications-email-address']}}
-            </dd>
-          </div>
-        </dl>
+        <p>
+          Please confirm your email address: <a href="/v0/api/ves-application-complete-test-email-valid">Confirm your application</a>
+        </p>
+ 
+        <p>
+          Once your email address is confirmed, we'll send you your Test API key.
+        </p>
+
+        <p>
+          &nbsp;
+        </p>
+
+        <p>
+          <strong>NOTE:</strong> Your application won't be processed if you don't click the confirmation link above.
+        </p>
+        <p>
+          If you received this email by mistake, simply delete it and your info will be removed from our system automatically.
+        </p>
+
 
       </div>
 
