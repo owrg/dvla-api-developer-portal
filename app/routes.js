@@ -5,6 +5,10 @@ const router = express.Router()
 router.use('/node_modules', express.static('node_modules'))
 
 
+router.get('/v0/', function (req, res) {
+    res.redirect('/v0/api');    
+})
+
 
 router.post('/v0/form-handler', function (req, res) {
 
