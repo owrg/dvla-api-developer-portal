@@ -1,32 +1,27 @@
-{% extends "v0/layout_v0_gmail.html" %}
+{% extends "v0/layout_v0_outlook.html" %}
 
 {% block pageTitle %}
-Consumer confirmation email
+Vehicle Enquiry Service
 {% endblock %}
 
 {% block content %}
 
 
-<div class="gmail-messageblock">
+<div class="outlook-messageblock">
 
-    <div class="gmail-subject">
-      DVLA Open Data API Application
-    </div>
-      <div class="gmail-sender">
-        DVLA Secure Access <span class="gmail-sender-email">&lt;DVLASecureAccessInternal@dvla.gov.uk&gt;</span>
-      <span class="gmail-date">
-        {{data['application-date']|dateInTimeFormat}} (0 minutes ago)
-      </span>
-    </div>
-      <div class="gmail-to">
-        to me
+      <div class="outlook-sender">
+        External Developer
       </div>
-      <div class="gmail-message">
-        <p>
-          Your application for an API key for the <strong>Vehicle Enquires Service</strong> - <strong>Production environment</strong> has been submitted.
-          <br/>Our Digital Service Support Team will process your request within 5 working days.
-        </p>
- 
+      <div class="outlook-date">
+        {{data['application-date']|dateInEmailFormat}}
+      </div>
+      <div class="outlook-to">
+        DSST
+      </div>
+      <div class="outlook-message">
+
+        <p>Please create this <strong>Test</strong> user in the <a href="/v0/api/dsst-imp-create-open-data-user-form" target="_blank">Internal Management Portal</a> and respond to them within 5 working days</p>
+
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -72,7 +67,6 @@ Consumer confirmation email
               {{data['contact-number']}}
             </dd>
           </div>
-<!--
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Intended use of the data
@@ -105,10 +99,8 @@ Consumer confirmation email
               {{data['notifications-email-address']}}
             </dd>
           </div>
-          -->
         </dl>
 
       </div>
-
 </div>
 {% endblock %}
