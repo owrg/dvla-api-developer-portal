@@ -1,0 +1,51 @@
+{% extends "v0/layout_v0.html" %}
+
+{% block pageTitle %}
+Vehicle Enquiry Service
+{% endblock %}
+
+{% block content %}<a href="/v0/api/ves" class="govuk-back-link">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Step 1</span>
+    <h1 class="govuk-heading-xl">
+      VES API - Environment
+    </h1>
+
+
+    <fieldset class="govuk-fieldset">
+      <form name="VESform" action="/v0/form-handler" method="post" novalidate data-validate='my-form-validation'>
+
+        <div class="govuk-radios govuk-radios--inline">
+          <label class="govuk-label" for="environment">
+            What data environment would you like to access?
+          </label>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="environment" name="VESenvironment" type="radio" value="Test" checked>
+            <label class="govuk-label govuk-radios__label" for="test-service">
+              <span style="font-weight:bold">Test</span> - Highly recommended if you have not used this API before
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="environment-2" name="VESenvironment" type="radio" value="Production">
+            <label class="govuk-label govuk-radios__label" for="test-service">
+              <span style="font-weight:bold">Production</span> - Requires acceptance of our Terms & Conditions
+            </label>
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-!-width-two-thirds" id="application-date" name="application-date" type="hidden">
+        </div>
+
+        <button id="apply_ves" class="govuk-button" data-module="govuk-button" href="">
+          Continue
+        </button>
+      </form>
+
+    </fieldset>
+
+  </div>
+</div>
+
+{% endblock %}

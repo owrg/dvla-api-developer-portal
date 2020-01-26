@@ -11,17 +11,13 @@ Vehicle Enquiry Service
 {% block content %}<a href="/v0/api/ves" class="govuk-back-link">Back</a>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Step 2</span>
     <h1 class="govuk-heading-xl">
-		Apply for a Test VES API Key
+		Test VES API
     </h1>
-    <p>
-      To apply for this service, please complete the form below.
-    </p>
-
 
     <fieldset class="govuk-fieldset">
-      <form name="VESform" action="/form-handler" method="post" novalidate data-validate='my-form-validation'>
-
+      <form name="VESform" action="/v0/api/ves-application-complete-test" method="post" novalidate data-validate='my-form-validation'>
 
         <h3 class="govuk-heading-m">
           Your details
@@ -409,21 +405,6 @@ Vehicle Enquiry Service
             "message": "^Full Name must contain alphabet characters only"
           }
         },
-        "email-address": {
-          "presence": {
-            "message": "^Enter your email address"
-          },
-          "length": {
-            "minimum": 1,
-            "tooShort": "^Your email address must be valid",
-            "maximum": 50,
-            "tooLong": "^Your email address must be 50 characters or fewer"
-          },
-          "format": {
-            "pattern": "^(.)+@(.)+$",
-            "message": "^Email address must contains an at sign that is preceded and followed by one or more nonwhitespace characters"
-          }
-       },
        "address-line-1": {
           "presence": {
             "message": "^Enter line 1 of your address"
@@ -443,7 +424,7 @@ Vehicle Enquiry Service
         },
         "address-town": {
           "presence": {
-            "message": "^Enter your town/city"
+            "message": "^Enter your Town or City"
           },
           "length": {
             "minimum": 3,
@@ -454,7 +435,7 @@ Vehicle Enquiry Service
         },
         "address-postcode": {
           "presence": {
-            "message": "^Enter your postcode"
+            "message": "^Enter your Postcode"
           },
           "length": {
             "minimum": 6,
@@ -463,6 +444,21 @@ Vehicle Enquiry Service
             "tooLong": "^Postcode must be 8 characters or fewer"
           }
         },
+        "email-address": {
+			"presence": {
+			  "message": "^Enter your contact email address"
+			},
+			"length": {
+			  "minimum": 1,
+			  "tooShort": "^Your email address must be valid",
+			  "maximum": 50,
+			  "tooLong": "^Your email address must be 50 characters or fewer"
+			},
+			"format": {
+			  "pattern": "^(.)+@(.)+$",
+			  "message": "^Email address must contains an at sign that is preceded and followed by one or more nonwhitespace characters"
+			}
+		 },
         "contact-number": {
           "presence": {
             "message": "^Enter your contact number"
