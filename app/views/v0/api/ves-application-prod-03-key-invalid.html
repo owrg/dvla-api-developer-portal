@@ -1,0 +1,22 @@
+{% extends "v0/layout_v0.html" %}
+
+{% block pageTitle %}
+Vehicle Enquiry Service
+{% endblock %}
+
+{% block content %}<a href="#" onclick="goBack()" class="govuk-back-link">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">Step 3</span>
+    <h1 class="govuk-heading-xl">
+      Check your details
+    </h1>
+
+    <p>We have not been able to find your details using the information you provided.</p>
+    <p>You can now either <a href="/v0/api/ves-application-prod-02-key">go back</a> and try again or complete the <a href="/v0/api/ves-application-prod-02-nokey">application form</a>.</p>
+
+  </div>
+</div>
+<script>function goBack() { window.history.back(); }</script>
+
+{% endblock %}

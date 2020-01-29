@@ -7,17 +7,13 @@ Vehicle Enquiry Service
 {% block content %}<a href="#" onclick="goBack()" class="govuk-back-link">Back</a>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Step 3</span>
     <h1 class="govuk-heading-xl">
-      Apply for VES API
+      Production VES API
     </h1>
-    <p>
-      To apply for this service, please complete the form below.
-    </p>
-
 
     <fieldset class="govuk-fieldset">
-      <form name="VESform" action="/form-handler" method="post" novalidate data-validate='my-form-validation'>
-
+      <form name="VESform" action="/v0/api/ves-application-prod-03-tac" method="post" novalidate data-validate='my-form-validation'>
 
         <h3 class="govuk-heading-m">
           Your details
@@ -27,7 +23,7 @@ Vehicle Enquiry Service
             Company name
           </label>
           <span id="company-name-hint" class="govuk-hint">
-            (if applicable)
+            If you are using this for personal use, enter your name
           </span>
           <input class="govuk-input govuk-!-width-two-thirds" id="company-name" name="company-name" type="text">
         </div>
@@ -37,16 +33,6 @@ Vehicle Enquiry Service
             Full Name
           </label>
           <input class="govuk-input govuk-!-width-two-thirds" id="full-name" name="full-name" type="text">
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="email-address">
-            Contact email address
-          </label>
-          <span id="mobile-number-hint" class="govuk-hint">
-            We’ll send you a confirmation email
-          </span>
-          <input class="govuk-input govuk-!-width-two-thirds" id="email-address" name="email-address" type="text">
         </div>
 
         <fieldset class="govuk-fieldset">
@@ -338,10 +324,18 @@ Vehicle Enquiry Service
             	<option value="ZWE">Zimbabwe</option>
             </select>
           </div>
-
-
         </fieldset>
 
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="email-address">
+            Contact email address
+          </label>
+          <span id="mobile-number-hint" class="govuk-hint">
+            We’ll send you a confirmation email
+          </span>
+          <input class="govuk-input govuk-!-width-two-thirds" id="email-address" name="email-address" type="text">
+        </div>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="contact-number">
@@ -350,27 +344,7 @@ Vehicle Enquiry Service
           <input class="govuk-input govuk-input--width-10" id="contact-number" name="contact-number" type="text">
         </div>
 
-
-        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="intended-use">
-              Your intended use of the data
-            </label>
-            <span id="intended-use-hint" class="govuk-hint">
-              Explain what you will do with the data provided by this API
-            </span>
-            <textarea class="govuk-textarea govuk-js-character-count" id="intended-use" name="intended-use" rows="5" aria-describedby="intended-use-info intended-use-hint"></textarea>
-          </div>
-
-          <span id="intended-use-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-            You can enter up to 200 characters
-          </span>
-        </div>
-
-
-
-
-
+      <!--
         <div class="govuk-radios govuk-radios--inline">
           <label class="govuk-label" for="environment">
             What data environment would you like to access?
@@ -388,85 +362,33 @@ Vehicle Enquiry Service
             </label>
           </div>
         </div>
-
+      -->
         <p>&nbsp;</p>
-        <h3 class="govuk-heading-m">
-          Contact details for notifications of planned maintenance / outages
-        </h3>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="notifications-name">
-            Name
-          </label>
-          <input class="govuk-input govuk-!-width-two-thirds" id="notifications-name" name="notifications-name" type="text">
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="notifications-email-address">
-            Email address
-          </label>
-          <input class="govuk-input govuk-!-width-two-thirds" id="notifications-email-address" name="notifications-email-address" type="text">
-        </div>
-
-        <div class="govuk-form-group">
-          <input class="govuk-input govuk-!-width-two-thirds" id="application-date" name="application-date" type="hidden">
-        </div>
-
+ 
         <button id="apply_ves" class="govuk-button" data-module="govuk-button" href="">
-          Submit
+          Continue
         </button>
       </form>
 
-
-      <!--
-      <span id="testkey-button-hint" class="govuk-hint">Issue Test Key</span>
-      <a href="/v0/api/subscribed.html" role="button" draggable="false" class="govuk-button govuk-button" data-module="govuk-button">
-        Submit
-      </a>
--->
     </fieldset>
 
-    <p>
-      Upon receipt of this information, we will contact you within 5 working days with further details.
-    </p>
-
-
-    <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', (event) => {
-
-        const rad = document.VESform.VESenvironment;
-        const btn = document.getElementById("apply_ves");
-
-        var prev = null;
-        for (var i = 0; i < rad.length; i++) {
-          rad[i].onclick = function() {
-            //                (prev)? alert("a"+prev.value):null;
-            if (this !== prev) {
-              prev = this;
-            }
-            if (this.value === "Test") {
-              btn.innerText = "Submit"
-            }
-            if (this.value === "Production") {
-              btn.innerText = "Continue"
-            }
-          };
-        }
-
-      });
-    </script>
 
     <script type="application/json" id="my-form-validation">
       {
         "company-name": {
+          "presence": {
+            "message": "^Enter your Company Name"
+          },
           "length": {
+            "minimum": 3,
+            "tooShort": "^Company Name must be 3 characters or more",
             "maximum": 30,
             "tooLong": "^Company Name must be 30 characters or fewer"
           }
         },
         "full-name": {
           "presence": {
-            "message": "^Enter your full name"
+            "message": "^Enter your Full Name"
           },
           "length": {
             "minimum": 3,
@@ -484,13 +406,17 @@ Vehicle Enquiry Service
             "message": "^Enter your email address"
           },
           "length": {
-            "minimum": 6,
-            "tooShort": "^Your email address must be 6 characters or more",
+            "minimum": 1,
+            "tooShort": "^Your email address must be valid",
             "maximum": 50,
             "tooLong": "^Your email address must be 50 characters or fewer"
+          },
+          "format": {
+            "pattern": "^(.)+@(.)+$",
+            "message": "^Email address must contains an at sign that is preceded and followed by one or more nonwhitespace characters"
           }
-        },
-        "address-line-1": {
+       },
+       "address-line-1": {
           "presence": {
             "message": "^Enter line 1 of your address"
           },
@@ -538,39 +464,10 @@ Vehicle Enquiry Service
             "tooShort": "^Contact phone number must be 11 characters or more",
             "maximum": 13,
             "tooLong": "^Contact phone number must be 13 characters or fewer"
-          }
-        },
-        "intended-use": {
-          "presence": {
-            "message": "^Enter your intended use"
           },
-          "length": {
-            "minimum": 3,
-            "tooShort": "^Intended use must be 3 characters or more",
-            "maximum": 200,
-            "tooLong": "^Intended use must be 200 characters or fewer"
-          }
-        },
-        "notifications-name": {
-          "presence": {
-            "message": "^Enter the name of the person who should be informed of planned maintenance/outages"
-          },
-          "length": {
-            "minimum": 3,
-            "tooShort": "^Name must be 3 characters or more",
-            "maximum": 30,
-            "tooLong": "^Name must be 30 characters or fewer"
-          }
-        },
-        "notifications-email-address": {
-          "presence": {
-            "message": "^Enter the email address of the person who should be informed of planned maintenance/outages"
-          },
-          "length": {
-            "minimum": 6,
-            "tooShort": "^Email address must be 6 characters or more",
-            "maximum": 50,
-            "tooLong": "^Email address must be 50 characters or fewer"
+          "format": {
+            "pattern": "[0-9]+",
+            "message": "^Contact number must only contain numbers"
           }
         }
       }

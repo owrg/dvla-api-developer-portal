@@ -1,0 +1,28 @@
+{% extends "v0/layout_v0_imp_table.html" %}
+
+{% block pageTitle %}
+Create Open Date API user
+{% endblock %}
+
+{% block content %}
+
+
+<div class="imp-tableblock">
+
+  <div class="imp-input-cell org">
+    {{data['company-name']}}
+  </div>
+  <div class="imp-input-cell name">
+    {{data['full-name']}}
+  </div>
+  <div class="imp-input-cell email">
+    {{data['email-address']}}
+  </div>
+  <div class="imp-input-cell status">
+    Enabled
+  </div>
+  <div class="imp-input-cell">
+    {{data['application-date']}}
+  </div>
+</div>
+{% endblock %}

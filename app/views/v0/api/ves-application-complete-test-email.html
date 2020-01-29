@@ -9,28 +9,17 @@ Consumer confirmation email
 
 <div class="gmail-messageblock">
 
-    <div class="gmail-subject">
-      DVLA Open Data API Application
+    <div class="gmail-subject">Please verify your email</div>
+      <div class="gmail-sender">DVLA API Access 
+        <span class="gmail-sender-email">&lt;DVLAAPIAccess@dvla.gov.uk&gt;</span>
+        <span class="gmail-date">{{data['application-date']|dateInTimeFormat}} (0 minutes ago)</span>
     </div>
-      <div class="gmail-sender">
-        DVLA API Access <span class="gmail-sender-email">&lt;DVLAAPIAccess@dvla.gov.uk&gt;</span>
-      <span class="gmail-date">
-        {{data['application-date']|dateInTimeFormat}} (0 minutes ago)
-      </span>
-    </div>
-      <div class="gmail-to">
-        to me
-      </div>
+      <div class="gmail-to">to me</div>
       <div class="gmail-message">
-        <p>
-          You recently submitted an application for an API key for the <strong>DVLA Vehicle Enquires Service</strong> - <strong>Test environment</strong>.
-        </p>
+        <p>Please click the button below to complete the verification process.</p>
+        <p><a href="/v0/api/ves-application-complete-test-email-valid">Verify your email now</a></p>
  
-        <p>
-          Please confirm your email address: <a href="/v0/api/ves-application-complete-test-email-valid">Confirm your application</a>
-        </p>
- 
-        <p>
+<!--         <p>
           Once your email address is confirmed, we'll send you your Test API key.
         </p>
 
@@ -44,7 +33,7 @@ Consumer confirmation email
         <p>
           If you received this email by mistake, simply delete it and your info will be removed from our system automatically.
         </p>
-
+ -->
 
       </div>
 

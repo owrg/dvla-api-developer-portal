@@ -8,25 +8,17 @@ Consumer confirmation email
 
 
 <div class="gmail-messageblock">
+  <div class="gmail-subject">Please verify your email</div>
+  <div class="gmail-sender">DVLA API Access 
+    <span class="gmail-sender-email">&lt;DVLAAPIAccess@dvla.gov.uk&gt;</span>
+    <span class="gmail-date">{{data['application-date']|dateInTimeFormat}} (0 minutes ago)</span>
+</div>
+  <div class="gmail-to">to me</div>
+  <div class="gmail-message">
+    <p>Please click the button below to complete the verification process.</p>
+    <p><a href="/v0/api/ves-application-complete-prod-email-valid">Verify your email now</a></p>
 
-    <div class="gmail-subject">
-      DVLA Open Data API Application
-    </div>
-      <div class="gmail-sender">
-        DVLA Secure Access <span class="gmail-sender-email">&lt;DVLASecureAccessInternal@dvla.gov.uk&gt;</span>
-      <span class="gmail-date">
-        {{data['application-date']|dateInTimeFormat}} (0 minutes ago)
-      </span>
-    </div>
-      <div class="gmail-to">
-        to me
-      </div>
-      <div class="gmail-message">
-        <p>
-          Your application for an API key for the <strong>Vehicle Enquires Service</strong> - <strong>Production environment</strong> has been submitted.
-          <br/>Our Digital Service Support Team will process your request within 5 working days.
-        </p>
- 
+<!-- 
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -72,7 +64,9 @@ Consumer confirmation email
               {{data['contact-number']}}
             </dd>
           </div>
-<!--
+-->
+
+          <!--
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Intended use of the data

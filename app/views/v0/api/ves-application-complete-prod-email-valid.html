@@ -1,0 +1,27 @@
+{% extends "v0/layout_v0.html" %}
+
+{% block pageTitle %}
+Email confirmation
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p>Your email has been verified.</p>
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Application Submitted</h1>
+      </div>
+
+      <p>
+        Your application for a <strong>Vehicle Enquires Service</strong> - <strong>Production environment</strong> API key will be processed by our <a href="/v0/api/dsst-ves-application-request-prod" target="_blank">Digital Service Support Team</a> within 5 working days.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>
+        You will receive a confirmation <a href="/v0/api/ves-application-complete-prod-email-api" target="_blank">email</a> once your application has been processed.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

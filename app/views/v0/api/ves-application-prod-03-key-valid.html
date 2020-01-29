@@ -1,0 +1,73 @@
+{% extends "v0/layout_v0.html" %}
+
+{% block pageTitle %}
+Vehicle Enquiry Service
+{% endblock %}
+
+{% block content %}<a href="#" onclick="goBack()" class="govuk-back-link">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">Step 4</span>
+    <h1 class="govuk-heading-xl">
+      Confirm your details
+    </h1>
+
+    <p>Please check if the details we have for you are correct.</p>
+
+
+    <fieldset class="govuk-fieldset">
+      <form name="VESform" action="ves-application-prod-04-tac" method="post" novalidate data-validate='my-form-validation'>
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['company-name']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['full-name']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['address-line-1']}}<br>{{data['address-line-2']}}<br>{{data['address-town']}}<br>{{data['address-postcode']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{data['email-address']}}</p>
+              <p class="govuk-body">{{data['contact-number']}}</p>
+            </dd>
+          </div>
+        </dl>     
+
+<p>        <a class="govuk-link" href="/v0/api/ves-application-prod-04-filledform">
+          Change<span class="govuk-visually-hidden"> contact details</span>
+        </a></p>
+        <p>&nbsp;</p>
+        
+        <button id="apply_ves" class="govuk-button" data-module="govuk-button" href="">
+          Continue
+        </button>
+      </form>
+
+    </fieldset>
+    <script>function goBack() { window.history.back(); }</script>
+
+  </div>
+</div>
+
+{% endblock %}

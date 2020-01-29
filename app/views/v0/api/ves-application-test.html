@@ -4,7 +4,7 @@
 Vehicle Enquiry Service
 {% endblock %}
 
-{% block content %}<a href="/v0/api/ves" class="govuk-back-link">Back</a>
+{% block content %}<a href="#" onclick="goBack()" class="govuk-back-link">Back</a>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">Step 2</span>
@@ -478,6 +478,7 @@ Vehicle Enquiry Service
         document.getElementById('application-date').value = new Date().toISOString();
       })();
     </script>
+    <script>function goBack() { window.history.back(); }</script>
 
   </div>
 </div>

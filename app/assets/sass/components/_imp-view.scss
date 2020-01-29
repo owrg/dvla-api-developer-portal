@@ -13,6 +13,21 @@
   background-size: contain;
 }
 
+.imp-table-header {
+  display: inline-block;
+  height: 150px;
+  width: 1780px; //2396px;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+  background-image: url("/public/images/IMP_blanktable.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: contain;
+}
+
 .imp-input {
   margin-bottom: 25px;
 }
@@ -28,4 +43,36 @@
   font-family: 'Roboto';
   font-size: 17px;
   color: #a5a5a5;
+}
+
+.imp-tableblock {
+  display: block;
+  position: absolute;
+  top: 250px;
+  left: 220px;
+  width: 1550px;
+  border:0px solid #FF0000;
+  padding: 0px;
+  font-family: 'Roboto';
+  font-size: 13px;
+  color: #a5a5a5;
+}
+
+.imp-input-cell {
+  float: left;
+}
+
+.imp-input-cell.org {
+  width: 255px;
+}
+
+.imp-input-cell.name {
+  width: 180px;
+}
+
+.imp-input-cell.email {
+  width: 565px;
+}
+.imp-input-cell.status {
+  padding-right: 20px;
 }
